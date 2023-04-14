@@ -23,14 +23,13 @@ System.Linq
 
 # Table Schema
 BomHead (Bom 表頭) <br/>
-Id int 自增ID <br/>
+Id int (自增ID) <br/>
 BomCode nvarchar(20) (Bom 編碼) <br/>
 MaterialCode nvarchar(20) (物料編號) <br/>
 Description nvarchar(MAX) (Bom 描述) <br/>
---------------------------------
 
-BomDetail (Bom表身)
-Id int 自增ID <br/>
+BomDetail (Bom表身) <br/>
+Id int (自增ID) <br/>
 BomCode nvarchar(20) (Bom 編碼) <br/>
 ChildMaterialCode nvarchar(20) (子物料編號) <br/>
 MaterialNum int (物料數量) <br/>
