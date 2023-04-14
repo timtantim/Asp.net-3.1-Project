@@ -14,8 +14,8 @@ Microsoft.EntityFrameworkCore
 System.Linq
 
 # 開發人員說明
-專案裡面的BomController 是我自行設計與測試用的BOM表，我將BOM表頭與表身藉由is_Head 來區別
-小提醒!! 以下BomHeadController與BomDetailController 為簡易BOM設計與程式開發能力簡易展示用!! 
+專案採用Code First 設計，控制器裡面的BomController 是我自行設計與測試用的BOM表，我將BOM表頭與表身藉由is_Head 來區別
+小提醒!! 以下BomHeadController與BomDetailController為需求文件所要求，導入Repository 設計模式的API Controller。 此專案為簡易BOM設計，主要目的為程式開發能力展示用!! 
 
 # 佈署說明
 1.請將資料庫環境設定於appsettings.json 的DefaultConnection 裡頭 <br/>
