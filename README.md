@@ -20,3 +20,17 @@ System.Linq
 # 佈署說明
 1.請將資料庫環境設定於appsettings.json 的DefaultConnection 裡頭 <br/>
 2.於套件管理器主控台執行update-database 
+
+# Table Schema
+BomHead (Bom 表頭) <br/>
+Id int 自增ID <br/>
+BomCode nvarchar(20) (Bom 編碼) <br/>
+MaterialCode nvarchar(20) (物料編號) <br/>
+Description nvarchar(MAX) (Bom 描述) <br/>
+--------------------------------
+
+BomDetail (Bom表身)
+Id int 自增ID <br/>
+BomCode nvarchar(20) (Bom 編碼) <br/>
+ChildMaterialCode nvarchar(20) (子物料編號) <br/>
+MaterialNum int (物料數量) <br/>
