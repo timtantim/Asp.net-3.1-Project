@@ -9,8 +9,8 @@ using NttProject1.DbContexts;
 namespace NttProject1.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230414063751_Modify Column type and length")]
-    partial class ModifyColumntypeandlength
+    [Migration("20230414074335_Initial Data")]
+    partial class InitialData
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -49,33 +49,29 @@ namespace NttProject1.Migrations
 
             modelBuilder.Entity("NttProject1.Model.BomDetail", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<string>("BomCode")
+                        .HasColumnType("nvarchar(20)")
+                        .HasMaxLength(20);
 
                     b.Property<string>("ChildMaterialCode")
                         .IsRequired()
                         .HasColumnType("nvarchar(20)")
                         .HasMaxLength(20);
 
+                    b.Property<int>("Id")
+                        .HasColumnType("int");
+
                     b.Property<int>("MaterialNum")
                         .HasColumnType("int");
 
-                    b.HasKey("Id");
+                    b.HasKey("BomCode");
 
                     b.ToTable("BomDetail");
                 });
 
             modelBuilder.Entity("NttProject1.Model.BomHead", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
                     b.Property<string>("BomCode")
-                        .IsRequired()
                         .HasColumnType("nvarchar(20)")
                         .HasMaxLength(20);
 
@@ -83,17 +79,29 @@ namespace NttProject1.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("Id")
+                        .HasColumnType("int");
+
                     b.Property<string>("MaterialCode")
                         .IsRequired()
                         .HasColumnType("nvarchar(20)")
                         .HasMaxLength(20);
 
-                    b.HasKey("Id");
+                    b.HasKey("BomCode");
 
                     b.HasIndex("BomCode")
                         .IsUnique();
 
                     b.ToTable("BomHead");
+                });
+
+            modelBuilder.Entity("NttProject1.Model.BomDetail", b =>
+                {
+                    b.HasOne("NttProject1.Model.BomHead", null)
+                        .WithMany("BomDetail")
+                        .HasForeignKey("BomCode")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

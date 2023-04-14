@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace NttProject1.Model
 {
@@ -7,11 +9,16 @@ namespace NttProject1.Model
         public int Id { get; set; }
         [Required]
         [StringLength(20)]
+        [Key]
         public string BomCode { get; set; }
         [Required]
         [StringLength(20)]
         public string ChildMaterialCode { get; set; }
         [Required]
         public int MaterialNum { get; set;}
+
+      
+
+
     }
 }
