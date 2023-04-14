@@ -6,8 +6,9 @@ namespace NttProject1.Model
     {
         public int Id { get; set; }
         [Required]
+        [StringLength(20)]
         public string ChildMaterialCode { get; set; }
         [Required]
-        public string MaterialNum { get; set;}
+        public int MaterialNum { get; set;}
     }
 }

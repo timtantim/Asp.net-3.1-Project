@@ -9,8 +9,10 @@ namespace NttProject1.Model
     {
         public int Id { get; set; }
         [Required]
+        [StringLength(20)]
         public string BomCode { get; set; }
         [Required]
+        [StringLength(20)]
         public string MaterialCode { get; set; }
         [Required]
         public string Description { get; set; }
