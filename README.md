@@ -18,5 +18,5 @@ System.Linq
 小提醒!! 以下BomHeadController與BomDetailController 單純為程式開發能力簡易展示用，並非真實BOM設計!! 
 
 # 佈署說明
-1.請將資料庫環境設定於appsettings.json 的DefaultConnection 裡頭
+1.請將資料庫環境設定於appsettings.json 的DefaultConnection 裡頭 <>
 2.於套件管理器主控台執行update-database 
