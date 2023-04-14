@@ -6,6 +6,8 @@ namespace NttProject1.RepositoryService
     {
         private ApplicationDbContext _applicationContext;
         private IBomRepository _bom;
+        private IBomHeadRepository _bomHead;
+        private IBomDetailRepository _bomDetail;
 
 
         public RepositoryWrapper(ApplicationDbContext applicationDbContext) {
@@ -17,6 +19,28 @@ namespace NttProject1.RepositoryService
                     _bom = new BomRepository(_applicationContext);
                 }
                 return _bom;
+            }
+        }
+
+        public IBomHeadRepository BomHead {
+            get
+            {
+                if (_bomHead == null)
+                {
+                    _bomHead = new BomHeadRepository(_applicationContext);
+                }
+                return _bomHead;
+            }
+        }
+
+        public IBomDetailRepository BomDetail {
+            get
+            {
+                if (_bomDetail == null)
+                {
+                    _bomDetail = new BomDetailRepository(_applicationContext);
+                }
+                return _bomDetail;
             }
         }
 
