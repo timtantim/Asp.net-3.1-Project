@@ -34,19 +34,20 @@ namespace NttProject1
             Configuration.GetConnectionString("DefaultConnection"),
             ef => ef.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName)));
             services.AddScoped<IApplicationDbContext>(provider => provider.GetService<ApplicationDbContext>());
-
+           
             /*註冊控制器服務*/
             services.AddControllers().AddNewtonsoftJson();
 
             /*註冊Repository服務*/
             services.AddScoped<IRepositoryWrapper, RepositoryWrapper>();
+            
 
             /*導入第三方驗證 OAuth*/
             services.AddAuthentication("Bearer")
             .AddIdentityServerAuthentication("Bearer", options =>
             {
                 options.ApiName = "myApi";
-                options.Authority = "http://localhost:26691";
+                options.Authority = Configuration.GetValue<string>("IDServerHost");
                 options.RequireHttpsMetadata = false;
             });
         }
