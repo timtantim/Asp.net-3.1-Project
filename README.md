@@ -16,7 +16,7 @@ System.Linq
 # 額外系統開發
 
 因為有提到後端系統會以不同模組來佈署，因此為了確保系統安全性，我額外開發OAuth Server 來驗證前端請求。
-該系統在Github 的IDServer，如果要下載下來佈署到本機，請將NttProject1的Startup.cs 裡頭services.AddAuthentication("Bearer") 底下將options.Authority 的網址改掉
+該系統在Github 的IDServer，如果要下載下來佈署到本機，請到appsettings.json 的IDServerHost 填入 IDServer 的URL
 
 # 開發人員說明
 專案採用Asp.net 3.1 版本 Code First 設計，控制器裡面的BomController 是我自行設計與測試用的BOM表，我將BOM表頭與表身藉由is_Head 來區別
