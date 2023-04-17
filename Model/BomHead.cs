@@ -19,6 +19,7 @@ namespace NttProject1.Model
         [Required]
         public string Description { get; set; }
 
+        //RelationShips 一個物料可由多種物料所構成
         [ForeignKey("BomCode")]
         public virtual ICollection<BomDetail> BomDetail { get; set; }
 

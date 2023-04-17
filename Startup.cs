@@ -40,6 +40,14 @@ namespace NttProject1
 
             /*註冊Repository服務*/
             services.AddScoped<IRepositoryWrapper, RepositoryWrapper>();
+
+            /*導入第三方驗證 OAuth*/
+            services.AddAuthentication("Bearer")
+            .AddIdentityServerAuthentication("Bearer", options =>
+            {
+                options.ApiName = "myApi";
+                options.Authority = "https://localhost:26691";
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
