@@ -46,7 +46,8 @@ namespace NttProject1
             .AddIdentityServerAuthentication("Bearer", options =>
             {
                 options.ApiName = "myApi";
-                options.Authority = "https://localhost:26691";
+                options.Authority = "http://localhost:26691";
+                options.RequireHttpsMetadata = false;
             });
         }
 
